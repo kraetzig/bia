@@ -1,8 +1,8 @@
-const app = require("./config/express")();
-const port = app.get("port");
+const app = require('./index');
 
-// RODANDO NOSSA APLICAÇÃO NA PORTA SETADA
+// Usa a porta definida pelo ambiente (AWS) ou a 8080 por padrão
+const PORT = process.env.PORT || 8080;
 
-app.listen(port, () => {
-  console.log(`Servidor rodando na porta ${port}`);
+app.listen(PORT, '0.0.0.0', function() {
+  console.log(`App escutando na porta ${PORT}!`);
 });
